@@ -6,20 +6,22 @@ extern "C"
 {
 #endif
 /*****************************************************************************/
-/*  Copyright (C) 2018 Siemens Aktiengesellschaft. All rights reserved.      */
+/*  Copyright (C) 2018 Siemens Aktiengesellschaft                            */
 /*****************************************************************************/
-/* This program is free software; you can redistribute it and/or             */
-/* modify it under the terms of the GNU General Public License version 2     */
-/* as published by the Free Software Foundation; or, when distributed        */
-/* separately from the Linux kernel or incorporated into other               */
-/* software packages, subject to the following license:                      */
+/* This program is free software; you can redistribute it and/or modify      */
+/* it under the terms of the GNU General Public License as published by      */
+/* the Free Software Foundation; version 2.                                  */
 /*                                                                           */
-/*  This program is protected by German copyright law and international      */
-/*  treaties. The use of this software including but not limited to its      */
-/*  Source Code is subject to restrictions as agreed in the license          */
-/*  agreement between you and Siemens.                                       */
-/*  Copying or distribution is not allowed unless expressly permitted        */
-/*  according to your license agreement with Siemens.                        */
+/* This program is distributed in the hope that it will be useful,           */
+/* but WITHOUT ANY WARRANTY; without even the implied warranty of            */
+/* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             */
+/* GNU General Public License for more details.                              */
+/*                                                                           */
+/* You should have received a copy of the GNU General Public License along   */
+/* with this program; if not, write to the Free Software Foundation, Inc.,   */
+/* 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.               */
+/*                                                                           */
+/* SPDX-License-Identifier: GPL-2.0                                          */
 /*                                                                           */
 /*****************************************************************************/
 /*                                                                           */
