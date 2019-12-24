@@ -1,14 +1,14 @@
-VIEW:= $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../../../../)
-SOURCE_SYS			:= ../../src/PnDev_Driver.sys
-SOURCE_COMMON		:= $(SOURCE_SYS)/../../common
-SOURCE_SYS_ABS		:= $(VIEW)/pndevdrv/PnDev_Driver/src/PnDev_Driver.sys
-SOURCE_COMMON_ABS	:= $(VIEW)/pndevdrv/PnDev_Driver/common
+VIEW:= $(abspath $(dir $(lastword $(MAKEFILE_LIST)))/../..)
+SOURCE_COMMON     := ../../common
+SOURCE_COMMON_ABS := $(VIEW)/common
+SOURCE_SYS        := ../../src/PnDev_Driver.sys
+SOURCE_SYS_ABS    := $(VIEW)/src/PnDev_Driver.sys
 
 ccflags-y += -g -o0 -Wframe-larger-than=1000\
 				-DPNDEV_DRIVER_SYS	\
 				-DPNDEV_SUPPORT_I210 -DPNDEV_SUPPORT_I210SFP -DPNDEV_SUPPORT_I82574 -DPNDEV_SUPPORT_IX1000 -DPNDEV_SUPPORT_OTHERS	\
-				-DPNDEV_OS_LINUX -I$(VIEW)/pndevdrv/PnDev_Driver/common/ \
-				-I$(VIEW)/pndevdrv/PnDev_Driver/src/PnDev_Driver.sys/
+				-DPNDEV_OS_LINUX -I$(SOURCE_COMMON_ABS) \
+				-I$(SOURCE_SYS_ABS)
 		
 #for Kenerl version < 3.16
 #ccflags-y += -DPNDEV_LINUX_MSI_BLOCK
@@ -55,7 +55,7 @@ KERNELDIR ?= /lib/modules/$(shell uname -r)/build
 PWD       := $(shell pwd)
 
 modules:
-	$(MAKE) -C $(KERNELDIR) M=$(VIEW)/pndevdrv/PnDev_Driver/bin/Linux LDDINC=$(PWD) modules
+	$(MAKE) -C $(KERNELDIR) M=$(VIEW)/bin/Linux LDDINC=$(PWD) modules
 
 endif
 
@@ -65,7 +65,7 @@ install:
 	install -c $(TARGET).o $(INSTALLDIR)
 
 clean:
-	$(MAKE) -C $(KERNELDIR) M=$(VIEW)/pndevdrv/PnDev_Driver/bin/Linux LDDINC=$(PWD) clean
+	$(MAKE) -C $(KERNELDIR) M=$(VIEW)/bin/Linux LDDINC=$(PWD) clean
 	rm -rf *.o *~ core .depend .*.cmd $(TARGET).ko *.mod.c .tmp_versions *.symvers *.order
 	
 	rm -rf $(SOURCE_SYS_ABS)/*.o $(SOURCE_SYS_ABS)/*~ core $(SOURCE_SYS_ABS)/*.depend $(SOURCE_SYS_ABS)/.*.cmd $(SOURCE_SYS_ABS)/*.ko $(SOURCE_SYS_ABS)/*.mod.c $(SOURCE_SYS_ABS)/*.tmp_versions $(SOURCE_SYS_ABS)/*.symvers $(SOURCE_SYS_ABS)/*.order
