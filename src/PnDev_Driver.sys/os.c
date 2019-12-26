@@ -6926,7 +6926,7 @@ BOOLEAN bResult = FALSE;
 					if 	(!fnRegisterIsr(pDevExtIn,
 										pDevExtIn->uMsixEntry[i].vector,
 										i,
-										_countof(sErrorOut),
+										lDimErrorIn,
 										sErrorOut))
 						// registering ISR for vector i cause error
 					{				
@@ -7000,7 +7000,7 @@ BOOLEAN bResult = FALSE;
 					if 	(!fnRegisterIsr(pDevExtIn,
 										pDevExtIn->uMsixEntry[i].vector,
 										i,
-										_countof(sErrorOut),
+										lDimErrorIn,
 										sErrorOut))
 						// registering ISR for vector i cause error
 					{				
